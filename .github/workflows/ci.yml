@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Fusion add-in
+        run: |
+          python3 -m py_compile CursorOrbit/CursorOrbit.py CursorOrbit/__init__.py
+          python3 -m json.tool CursorOrbit/CursorOrbit.manifest >/dev/null
+
+      - name: Validate scripts and property lists
+        run: |
+          zsh -n install.sh uninstall.sh mac-helper/build.sh
+          plutil -lint mac-helper/Info.plist
+          plutil -lint mac-helper/com.sean.CursorOrbitHelper.plist
+
+      - name: Build helper
+        run: |
+          zsh mac-helper/build.sh
+          codesign --verify --deep --strict --verbose=2 \
+            dist/CursorOrbitHelper.app

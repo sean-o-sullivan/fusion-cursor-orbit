@@ -1,0 +1,12 @@
+{
+    "autodeskProduct": "Fusion",
+    "type": "addin",
+    "author": "Seán O'Sullivan",
+    "description": {
+        "": "Resets the native orbit pivot on Shift release for CursorOrbitHelper."
+    },
+    "version": "0.3.0",
+    "runOnStartup": true,
+    "supportedOS": "mac",
+    "editEnabled": true
+}
