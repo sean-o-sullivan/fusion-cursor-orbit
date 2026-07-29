@@ -2,6 +2,11 @@
 
 Cursor-centred orbit for Autodesk Fusion on a Mac trackpad.
 
+I like Fusion's native Mac trackpad navigation, but its orbit pivot can jump
+between surfaces as the cursor moves. I wanted the useful cursor-pivot
+behaviour found in dedicated CAD controllers without adding another device, so
+I made this small utility.
+
 Hold **Shift** to lock the orbit pivot to the point beneath the cursor. Keep
 holding Shift across as many two-finger swipes as needed. Release Shift to
 return to Fusion's automatic orbit-centre behaviour.
