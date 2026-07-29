@@ -11,7 +11,7 @@ jobs:
   validate:
     runs-on: macos-14
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Validate Fusion add-in
         run: |
